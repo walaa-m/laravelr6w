@@ -6,7 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+<<<<<<< HEAD
         "laravel/framework": "^11.0",
+=======
+        "laravel/framework": "^11.9",
+>>>>>>> upstream/main
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
@@ -15,8 +19,13 @@
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
+<<<<<<< HEAD
         "phpunit/phpunit": "^10.5",
         "spatie/laravel-ignition": "^2.4"
+=======
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.4"
+>>>>>>> upstream/main
     },
     "autoload": {
         "psr-4": {
@@ -44,6 +53,7 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+<<<<<<< HEAD
             "@php artisan migrate --ansi"
         ]
     },
@@ -51,6 +61,12 @@
         "branch-alias": {
             "dev-master": "11.x-dev"
         },
+=======
+            "@php artisan migrate --graceful --ansi"
+        ]
+    },
+    "extra": {
+>>>>>>> upstream/main
         "laravel": {
             "dont-discover": []
         }
