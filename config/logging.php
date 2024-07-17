@@ -45,7 +45,11 @@ return [
     | utilizes the Monolog PHP logging library, which includes a variety
     | of powerful log handlers and formatters that you're free to use.
     |
+<<<<<<< HEAD
     | Available Drivers: "single", "daily", "slack", "syslog",
+=======
+    | Available drivers: "single", "daily", "slack", "syslog",
+>>>>>>> upstream/main
     |                    "errorlog", "monolog", "custom", "stack"
     |
     */
