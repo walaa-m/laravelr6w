@@ -1,28 +1,44 @@
 <?php
+use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\CarController;
-
-// Accounts Routes
-Route::prefix('accounts')->group(function () {
-    Route::get('/', [AccountController::class, 'index']);
-    Route::get('/admin', [AccountController::class, 'admin']);
-    Route::get('/user', [AccountController::class, 'user']);
+Route::get('link', function () {
+    $url = route('w');
+    return "<a href='$url'>go to welcome</a>";
 });
 
-// Cars Routes
-Route::prefix('cars')->group(function () {
-    // USA Cars
-    Route::prefix('usa')->group(function () {
-        Route::get('/ford', [CarController::class, 'ford']);
-        Route::get('/tesla', [CarController::class, 'tesla']);
-    });
+Route::get('hwelcome', function () {
+    return "welcome to laravel";
+})->name('w');
 
-    // German Cars
-    Route::prefix('ger')->group(function () {
-        Route::get('/mercedes', [CarController::class, 'mercedes']);
-        Route::get('/audi', [CarController::class, 'audi']);
-        Route::get('/volkswagen', [CarController::class, 'volkswagen']);
-    });
+Route::get('cv', function () {
+    return view('cv');
 });
+
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::get('/form', function () {
+    return view('form');
+})->name('form');
+
+Route::post('/process_form', function () {
+    return redirect()->route('login_done');
+})->name('process_form');
+
+Route::get('/login_done', function () {
+    return "Login Done";
+})->name('login_done');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact_form');
+
+Route::post('/contact', function (Request $request) {
+    $data = $request->all();
+    return view('contact_confirmation', ['data' => $data]);
+})->name('submit_contact_form');
+
+
+
+?>
